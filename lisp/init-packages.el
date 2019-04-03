@@ -25,6 +25,7 @@
 		       counsel
 		       smartparens
 		       popwin
+		       iedit
 		       ) "Default packages")
 
 (setq package-selected-packages jon/packages)

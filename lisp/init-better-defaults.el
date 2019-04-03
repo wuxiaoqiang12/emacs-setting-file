@@ -22,6 +22,8 @@
 
 (delete-selection-mode t)
 
+(setq make-backup-files nil)
+
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (defun indent-buffer()
@@ -51,6 +53,8 @@
                                         try-complete-lisp-symbol))
 
 (put 'dired-find-alternate-file 'disabled nil)
+
+(sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil)
 
 (require 'dired-x)
 (provide 'init-better-defaults)
