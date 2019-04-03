@@ -23,13 +23,14 @@
 		       hungry-delete
 		       swiper
 		       counsel
-		       smartparens
+		       ;;smartparens
 		       popwin
 		       iedit
                ;;powerline
                spaceline
                winum
                flycheck
+               autopair
 		       ) "Default packages")
 
 (setq package-selected-packages jon/packages)
@@ -49,7 +50,7 @@
 (global-hungry-delete-mode)
 
 ;;(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
-(smartparens-global-mode t)
+;;(smartparens-global-mode t)
 
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
@@ -69,6 +70,9 @@
 (winum-mode)
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+(require 'autopair)
+(autopair-global-mode)
 
 (require 'popwin)
 (popwin-mode t)

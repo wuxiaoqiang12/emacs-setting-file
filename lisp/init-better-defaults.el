@@ -54,7 +54,7 @@
 
 (put 'dired-find-alternate-file 'disabled nil)
 
-(sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil)
+;;(sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil)
 
 (require 'dired-x)
 (provide 'init-better-defaults)
