@@ -26,6 +26,10 @@
 		       smartparens
 		       popwin
 		       iedit
+               ;;powerline
+               spaceline
+               winum
+               flycheck
 		       ) "Default packages")
 
 (setq package-selected-packages jon/packages)
@@ -54,6 +58,17 @@
 
 (load-theme 'monokai t)
 
+;;(require 'powerline)
+;;(powerline-default-theme)
+
+(require 'spaceline-config)
+(spaceline-spacemacs-theme)
+
+(setq winum-auto-setup-mode-line nil)
+(require 'winum)
+(winum-mode)
+
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 (require 'popwin)
 (popwin-mode t)
