@@ -26,11 +26,12 @@
 		       ;;smartparens
 		       popwin
 		       iedit
-               ;;powerline
-               spaceline
-               winum
-               flycheck
-               autopair
+		       ;;powerline
+		       spaceline
+		       winum
+		       flycheck
+		       autopair
+		       youdao-dictionary
 		       ) "Default packages")
 
 (setq package-selected-packages jon/packages)
@@ -79,6 +80,9 @@
 
 ;; Load company-coq when opening Coq files
 (add-hook 'coq-mode-hook #'company-coq-mode)
+
+;; Enable Chinese word segmentation support (支持中文分词)
+(setq youdao-dictionary-use-chinese-word-segmentation t)
 
 (cua-mode t)
 (setq-default cua-auto-tabify-rectangles nil)

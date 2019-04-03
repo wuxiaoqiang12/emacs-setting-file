@@ -28,6 +28,18 @@
 
 (global-set-key (kbd "s-/") 'hippie-expand)
 
+;; Enable Cache
+(setq url-automatic-caching t)
+
+;; Example Key binding
+(global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point)
+
+;; Integrate with popwin-el (https://github.com/m2ym/popwin-el)
+;; (push "*Youdao Dictionary*" popwin:special-display-config)
+
+;; Set file path for saving search history
+;; (setq youdao-dictionary-search-history-file "~/.emacs.d/.youdao")
+
 ;; 主动加载 Dired Mode
 ;; (require 'dired)
 ;; (defined-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
