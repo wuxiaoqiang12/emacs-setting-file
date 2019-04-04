@@ -28,6 +28,9 @@
 
 (global-set-key (kbd "s-/") 'hippie-expand)
 
+(global-set-key (kbd "C-c p f") 'counsel-git)
+
+(global-set-key (kbd "C-c a") 'org-agenda)
 ;; Enable Cache
 (setq url-automatic-caching t)
 

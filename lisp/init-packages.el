@@ -32,6 +32,7 @@
 		       flycheck
 		       autopair
 		       youdao-dictionary
+		       highlight-parentheses
 		       ) "Default packages")
 
 (setq package-selected-packages jon/packages)
@@ -58,22 +59,9 @@
 
 (global-company-mode t)
 
-(load-theme 'writer t)
-
-;;(require 'powerline)
-;;(powerline-default-theme)
-
-(require 'spaceline-config)
-(spaceline-spacemacs-theme)
-
-(setq winum-auto-setup-mode-line nil)
-(require 'winum)
-(winum-mode)
+(load-theme 'monokai t)
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
-
-(require 'autopair)
-(autopair-global-mode)
 
 (require 'popwin)
 (popwin-mode t)
@@ -88,5 +76,11 @@
 (setq-default cua-auto-tabify-rectangles nil)
 (transient-mark-mode 1)
 (setq-default cua-keep-region-after-copy t)
+
+(define-globalized-minor-mode global-highlight-parentheses-mode
+  highlight-parentheses-mode
+  (lambda ()
+    (highlight-parentheses-mode t)))
+(global-highlight-parentheses-mode t)
 
 (provide 'init-packages)

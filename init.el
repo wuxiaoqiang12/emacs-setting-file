@@ -27,10 +27,8 @@
 (require 'init-packages)
 (require 'init-ui)
 (require 'init-better-defaults)
-;;(require 'init-org)
+(require 'init-org)
 (require 'init-keybindings)
-;;(require 'stone-theme)
-
 
 
 (setq enable-recursive-minibuffers t)

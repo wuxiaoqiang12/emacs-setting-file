@@ -10,4 +10,11 @@
 
 (global-hl-line-mode t)
 
+(spaceline-spacemacs-theme)
+
+(setq winum-auto-setup-mode-line nil)
+(winum-mode)
+
+(autopair-global-mode)
+
 (provide 'init-ui)
