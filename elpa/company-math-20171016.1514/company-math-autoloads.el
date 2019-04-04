@@ -1,10 +1,12 @@
 ;;; company-math-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
-;;;### (autoloads nil "company-math" "company-math.el" (23691 39079
-;;;;;;  388929 256000))
+;;;### (autoloads nil "company-math" "company-math.el" (0 0 0 0))
 ;;; Generated autoloads from company-math.el
 
 (autoload 'company-latex-commands "company-math" "\
@@ -29,11 +31,14 @@ for details.
 
 \(fn COMMAND &optional ARG &rest IGNORED)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "company-math" '("company-math-")))
+
 ;;;***
 
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; company-math-autoloads.el ends here

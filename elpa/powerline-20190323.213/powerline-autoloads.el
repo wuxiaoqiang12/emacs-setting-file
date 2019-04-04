@@ -1,10 +1,12 @@
 ;;; powerline-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
-;;;### (autoloads nil "powerline" "powerline.el" (23716 50578 988240
-;;;;;;  123000))
+;;;### (autoloads nil "powerline" "powerline.el" (0 0 0 0))
 ;;; Generated autoloads from powerline.el
 
 (autoload 'powerline-hud "powerline" "\
@@ -46,10 +48,20 @@ Return empty space using FACE and leaving RESERVE space on the right.
  (autoload 'powerline-process "powerline")
  (autoload 'powerline-selected-window-active "powerline")
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "powerline" '("pl/" "powerline-")))
+
 ;;;***
 
-;;;### (autoloads nil "powerline-themes" "powerline-themes.el" (23716
-;;;;;;  50578 992240 204000))
+;;;### (autoloads nil "powerline-separators" "powerline-separators.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from powerline-separators.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "powerline-separators" '("powerline-image-apple-rgb" "pl/")))
+
+;;;***
+
+;;;### (autoloads nil "powerline-themes" "powerline-themes.el" (0
+;;;;;;  0 0 0))
 ;;; Generated autoloads from powerline-themes.el
 
 (autoload 'powerline-default-theme "powerline-themes" "\
@@ -72,10 +84,11 @@ Setup a nano-like mode-line.
 
 \(fn)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "powerline-themes" '("powerline-")))
+
 ;;;***
 
-;;;### (autoloads nil nil ("powerline-pkg.el" "powerline-separators.el")
-;;;;;;  (23716 50579 240 366000))
+;;;### (autoloads nil nil ("powerline-pkg.el") (0 0 0 0))
 
 ;;;***
 
@@ -83,5 +96,6 @@ Setup a nano-like mode-line.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; powerline-autoloads.el ends here

@@ -4,7 +4,7 @@
 
 ;; Author: Oleh Krehel <ohwoeowho@gmail.com>
 ;; URL: https://github.com/abo-abo/swiper
-;; Package-Version: 20190402.1426
+;; Package-Version: 20190403.2131
 ;; Version: 0.11.0
 ;; Package-Requires: ((emacs "24.3") (swiper "0.11.0"))
 ;; Keywords: convenience, matching, tools
@@ -217,7 +217,9 @@ respectively."
                   (time-to-seconds (time-since counsel--async-start))))
           (let ((re (ivy-re-to-str (funcall ivy--regex-function ivy-text))))
             (if ivy--old-cands
-                (ivy--recompute-index ivy-text re ivy--all-candidates)
+                (if (eq (ivy-alist-setting ivy-index-functions-alist) 'ivy-recompute-index-zero)
+                    (ivy-set-index 0)
+                  (ivy--recompute-index ivy-text re ivy--all-candidates))
               (unless (ivy-set-index
                        (ivy--preselect-index
                         (ivy-state-preselect ivy-last)
@@ -1782,7 +1784,7 @@ a dot. The generic way to toggle ignored files is \\[ivy-toggle-ignore],
 but the leading dot is a lot faster."
   :type `(choice
           (const :tag "None" nil)
-          (const :tag "Dotfiles" "\\`\\.")
+          (const :tag "Dotfiles" "\\(?:\\`\\|[/\\]\\)\\.")
           (const :tag "Ignored Extensions"
                  ,(regexp-opt completion-ignored-extensions))
           (regexp :tag "Regex")))
@@ -1836,20 +1838,26 @@ The preselect behaviour can be customized via user options
         buffer-file-name
         (file-name-nondirectory buffer-file-name))))
 
+(defun counsel--find-file-1 (prompt initial-input action caller)
+  (ivy-read prompt #'read-file-name-internal
+            :matcher #'counsel--find-file-matcher
+            :initial-input initial-input
+            :action action
+            :preselect (counsel--preselect-file)
+            :require-match 'confirm-after-completion
+            :history 'file-name-history
+            :keymap counsel-find-file-map
+            :caller caller))
+
 ;;;###autoload
 (defun counsel-find-file (&optional initial-input)
   "Forward to `find-file'.
 When INITIAL-INPUT is non-nil, use it in the minibuffer during completion."
   (interactive)
-  (ivy-read "Find file: " #'read-file-name-internal
-            :matcher #'counsel--find-file-matcher
-            :initial-input initial-input
-            :action #'counsel-find-file-action
-            :preselect (counsel--preselect-file)
-            :require-match 'confirm-after-completion
-            :history 'file-name-history
-            :keymap counsel-find-file-map
-            :caller 'counsel-find-file))
+  (counsel--find-file-1
+   "Find file: " initial-input
+   #'counsel-find-file-action
+   'counsel-find-file))
 
 (ivy-set-occur 'counsel-find-file 'counsel-find-file-occur)
 
@@ -2045,6 +2053,19 @@ result as a URL."
                  (funcall formatter word-at-point)
                (format formatter word-at-point)))))
        counsel-url-expansions-alist))))
+
+;;** `counsel-dired'
+(declare-function dired "dired")
+
+;;;###autoload
+(defun counsel-dired (&optional initial-input)
+  "Forward to `dired'.
+When INITIAL-INPUT is non-nil, use it in the minibuffer during completion."
+  (interactive)
+  (counsel--find-file-1
+   "Dired (directory): " initial-input
+   (lambda (d) (dired (expand-file-name d)))
+   'counsel-dired))
 
 ;;** `counsel-recentf'
 (defvar recentf-list)
@@ -2816,8 +2837,7 @@ When non-nil, INITIAL-INPUT is the initial search pattern."
 
                              :keymap counsel-grep-map
                              :history 'counsel-grep-history
-                             :update-fn (lambda ()
-                                          (counsel-grep-action (ivy-state-current ivy-last)))
+                             :update-fn 'auto
                              :re-builder #'ivy--regex
                              :action #'counsel-grep-action
                              :unwind (lambda ()
@@ -3073,13 +3093,15 @@ otherwise continue prompting for tags."
 (defun counsel-org-tag-agenda ()
   "Set tags for the current agenda item."
   (interactive)
-  (let ((store (symbol-function 'org-set-tags)))
+  (let* ((cmd-sym (if (version< (org-version) "9.2")
+                      'org-set-tags
+                    'org-set-tags-command))
+         (store (symbol-function cmd-sym)))
     (unwind-protect
          (progn
-           (fset 'org-set-tags
-                 (symbol-function 'counsel-org-tag))
+           (fset cmd-sym (symbol-function 'counsel-org-tag))
            (org-agenda-set-tags nil nil))
-      (fset 'org-set-tags store))))
+      (fset cmd-sym store))))
 
 (define-obsolete-variable-alias 'counsel-org-goto-display-tags
     'counsel-org-headline-display-tags "0.10.0")
@@ -3536,7 +3558,7 @@ Additional actions:\\<ivy-minibuffer-map>
             :require-match t
             :caller 'counsel-package))
 
-(cl-pushnew '(counsel-package . "^+ ") ivy-initial-inputs-alist :key #'car)
+(cl-pushnew '(counsel-package . "^+") ivy-initial-inputs-alist :key #'car)
 
 (defun counsel-package-action (package)
   "Delete or install PACKAGE."

@@ -1,10 +1,12 @@
 ;;; counsel-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
-;;;### (autoloads nil "counsel" "counsel.el" (23716 10861 464885
-;;;;;;  180000))
+;;;### (autoloads nil "counsel" "counsel.el" (0 0 0 0))
 ;;; Generated autoloads from counsel.el
 
 (autoload 'counsel-el "counsel" "\
@@ -141,6 +143,12 @@ Call the \"git log --grep\" shell command.
 
 (autoload 'counsel-find-file "counsel" "\
 Forward to `find-file'.
+When INITIAL-INPUT is non-nil, use it in the minibuffer during completion.
+
+\(fn &optional INITIAL-INPUT)" t nil)
+
+(autoload 'counsel-dired "counsel" "\
+Forward to `dired'.
 When INITIAL-INPUT is non-nil, use it in the minibuffer during completion.
 
 \(fn &optional INITIAL-INPUT)" t nil)
@@ -441,11 +449,14 @@ Local bindings (`counsel-mode-map'):
 
 \(fn &optional ARG)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "counsel" '("counsel-" "tmm-km-list" "ivy-function-called-at-point")))
+
 ;;;***
 
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; counsel-autoloads.el ends here

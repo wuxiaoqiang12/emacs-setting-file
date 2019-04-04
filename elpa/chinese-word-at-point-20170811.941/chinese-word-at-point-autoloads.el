@@ -1,10 +1,13 @@
 ;;; chinese-word-at-point-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
 ;;;### (autoloads nil "chinese-word-at-point" "chinese-word-at-point.el"
-;;;;;;  (23716 57366 233494 687000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from chinese-word-at-point.el
 
 (autoload 'chinese-word-at-point "chinese-word-at-point" "\
@@ -20,11 +23,14 @@ i.e. (thing-at-point 'word) can get proper word.
 
 \(fn)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "chinese-word-at-point" '("chinese-")))
+
 ;;;***
 
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; chinese-word-at-point-autoloads.el ends here

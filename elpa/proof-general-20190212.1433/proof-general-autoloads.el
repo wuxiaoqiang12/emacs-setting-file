@@ -1,10 +1,12 @@
 ;;; proof-general-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
-;;;### (autoloads nil "proof-general" "proof-general.el" (23691 39150
-;;;;;;  181707 246000))
+;;;### (autoloads nil "proof-general" "proof-general.el" (0 0 0 0))
 ;;; Generated autoloads from proof-general.el
 
 (eval-and-compile (defvar pg-init--script-full-path (or (and load-in-progress load-file-name) (bound-and-true-p byte-compile-current-file) (buffer-file-name))) (defvar pg-init--pg-root (file-name-directory pg-init--script-full-path)))
@@ -13,8 +15,7 @@
 
 ;;;***
 
-;;;### (autoloads nil nil ("proof-general-pkg.el") (23691 39150 137729
-;;;;;;  430000))
+;;;### (autoloads nil nil ("proof-general-pkg.el") (0 0 0 0))
 
 ;;;***
 
@@ -22,5 +23,6 @@
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; proof-general-autoloads.el ends here

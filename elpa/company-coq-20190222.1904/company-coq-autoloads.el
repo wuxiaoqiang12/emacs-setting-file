@@ -1,10 +1,12 @@
 ;;; company-coq-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
-;;;### (autoloads nil "company-coq" "company-coq.el" (23691 39107
-;;;;;;  463179 568000))
+;;;### (autoloads nil "company-coq" "company-coq.el" (0 0 0 0))
 ;;; Generated autoloads from company-coq.el
 
 (autoload 'company-coq-tutorial "company-coq" "\
@@ -39,10 +41,28 @@ Deprecated: Use `company-coq-mode' instead.
 
 \(fn)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "company-coq" '("toggle-company-coq-debug" "company-coq-")))
+
+;;;***
+
+;;;### (autoloads nil "company-coq-abbrev" "company-coq-abbrev.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from company-coq-abbrev.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "company-coq-abbrev" '("company-coq--refman-")))
+
+;;;***
+
+;;;### (autoloads nil "company-coq-tg" "company-coq-tg.el" (0 0 0
+;;;;;;  0))
+;;; Generated autoloads from company-coq-tg.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "company-coq-tg" '("company-coq-")))
+
 ;;;***
 
 ;;;### (autoloads nil "company-coq-utils" "company-coq-utils.el"
-;;;;;;  (23691 39107 459178 660000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from company-coq-utils.el
 
 (autoload 'company-coq-cite "company-coq-utils" "\
@@ -50,10 +70,11 @@ Insert BibTeX entries for Coq, PG, and company-coq.
 
 \(fn)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "company-coq-utils" '("company-coq--")))
+
 ;;;***
 
-;;;### (autoloads nil nil ("company-coq-abbrev.el" "company-coq-pkg.el"
-;;;;;;  "company-coq-tg.el") (23691 39107 471181 386000))
+;;;### (autoloads nil nil ("company-coq-pkg.el") (0 0 0 0))
 
 ;;;***
 
@@ -61,5 +82,6 @@ Insert BibTeX entries for Coq, PG, and company-coq.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; company-coq-autoloads.el ends here
