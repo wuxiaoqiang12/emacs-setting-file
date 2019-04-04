@@ -58,7 +58,7 @@
 
 (global-company-mode t)
 
-(load-theme 'monokai t)
+(load-theme 'writer t)
 
 ;;(require 'powerline)
 ;;(powerline-default-theme)
@@ -88,6 +88,5 @@
 (setq-default cua-auto-tabify-rectangles nil)
 (transient-mark-mode 1)
 (setq-default cua-keep-region-after-copy t)
-
 
 (provide 'init-packages)
