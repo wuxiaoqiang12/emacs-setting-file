@@ -34,6 +34,7 @@
 		       youdao-dictionary
 		       highlight-parentheses
 		       expand-region
+		       which-key
 		       org-pomodoro
 		       helm-ag
 		       ) "Default packages")
@@ -93,4 +94,5 @@
 (yas-reload-all)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
 
+(which-key-mode)
 (provide 'init-packages)

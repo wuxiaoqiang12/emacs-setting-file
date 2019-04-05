@@ -19,7 +19,7 @@
  '(org-pomodoro-short-break-length 50)
  '(package-selected-packages
    (quote
-    (org-pomodoro highlight-parentheses spacemacs-theme spaceline powerline company company-coq proof-general monokai-theme hungry-delete swiper counsel popwin)))
+    (which-key org-pomodoro highlight-parentheses spacemacs-theme spaceline powerline company company-coq proof-general monokai-theme hungry-delete swiper counsel popwin)))
  '(popwin:popup-window-position (quote right))
  '(popwin:popup-window-width 90)
  '(show-paren-mode t)
