@@ -33,6 +33,9 @@
 		       autopair
 		       youdao-dictionary
 		       highlight-parentheses
+		       expand-region
+		       org-pomodoro
+		       helm-ag
 		       ) "Default packages")
 
 (setq package-selected-packages jon/packages)
@@ -82,5 +85,7 @@
   (lambda ()
     (highlight-parentheses-mode t)))
 (global-highlight-parentheses-mode t)
+
+(require 'org-pomodoro)
 
 (provide 'init-packages)

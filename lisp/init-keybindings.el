@@ -28,7 +28,15 @@
 
 (global-set-key (kbd "s-/") 'hippie-expand)
 
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 (global-set-key (kbd "C-c p f") 'counsel-git)
+
+(global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
+
+(global-set-key (kbd "M-s e") 'iedit-mode)
+;; r refers to remeber
+(global-set-key (kbd "C-c r") 'org-capture)
 
 (global-set-key (kbd "C-c a") 'org-agenda)
 ;; Enable Cache
@@ -50,5 +58,11 @@
 ;; 延迟加载
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
 (provide 'init-keybindings)
