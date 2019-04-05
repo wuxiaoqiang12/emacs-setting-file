@@ -64,7 +64,8 @@
 
 (load-theme 'monokai t)
 
-(add-hook 'after-init-hook #'global-flycheck-mode)
+;;(add-hook 'after-init-hook #'global-flycheck-mode)
+(add-hook 'coq-mode-hook 'flycheck-mode)
 
 (require 'popwin)
 (popwin-mode t)
@@ -87,5 +88,9 @@
 (global-highlight-parentheses-mode t)
 
 (require 'org-pomodoro)
+
+(require 'yasnippet)
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
 
 (provide 'init-packages)
