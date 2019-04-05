@@ -4,58 +4,6 @@
 ;; | || |\  || |  | | _____|  __/ ___ \ |___| . \  / ___ \ |_| | |___ ___) |
 ;;|___|_| \_|___| |_|      |_| /_/   \_\____|_|\_\/_/   \_\____|_____|____/ 
 
-(require 'cl)
-
-(require 'package)
-;;(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
-;;                    (not (gnutls-available-p))))
-;;       (proto (if no-ssl "http" "https")))
-;;  (add-to-list 'package-archives
-;;               (cons "melpa" (concat proto "://melpa.org/packages/")) t))
-
-(setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                           ("melpa" . "http://elpa.emacs-china.org/melpa/")))
-
-(package-initialize)
-
-;;add whatever packages you want here
-(defvar jon/packages '(
-		       company
-		       company-coq
-		       proof-general
-		       monokai-theme
-		       hungry-delete
-		       swiper
-		       counsel
-		       ;;smartparens
-		       popwin
-		       iedit
-		       ;;powerline
-		       spaceline
-		       winum
-		       flycheck
-		       autopair
-		       youdao-dictionary
-		       highlight-parentheses
-		       expand-region
-		       which-key
-		       org-pomodoro
-		       helm-ag
-		       ) "Default packages")
-
-(setq package-selected-packages jon/packages)
-
-(defun jon/packages-installed-p ()
-  (loop for pkg in jon/packages
-	when (not (package-installed-p pkg)) do (return nil)
-	finally (return t)))
-
-(unless (jon/packages-installed-p)
-  (message "%s" "Refreshing package database...")
-  (package-refresh-contents)
-  (dolist (pkg jon/packages)
-    (when (not (package-installed-p pkg))
-      (package-install pkg))))
 
 (global-hungry-delete-mode)
 
