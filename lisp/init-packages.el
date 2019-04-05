@@ -7,11 +7,15 @@
 (require 'cl)
 
 (require 'package)
-(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
-                    (not (gnutls-available-p))))
-       (proto (if no-ssl "http" "https")))
-  (add-to-list 'package-archives
-               (cons "melpa" (concat proto "://melpa.org/packages/")) t))
+;;(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+;;                    (not (gnutls-available-p))))
+;;       (proto (if no-ssl "http" "https")))
+;;  (add-to-list 'package-archives
+;;               (cons "melpa" (concat proto "://melpa.org/packages/")) t))
+
+(setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+                           ("melpa" . "http://elpa.emacs-china.org/melpa/")))
+
 (package-initialize)
 
 ;;add whatever packages you want here
