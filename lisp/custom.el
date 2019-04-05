@@ -19,7 +19,7 @@
  '(org-pomodoro-short-break-length 50)
  '(package-selected-packages
    (quote
-    (company-math math-symbol-lists shut-up yasnippet pallet which-key org-pomodoro highlight-parentheses spacemacs-theme spaceline powerline company company-coq proof-general monokai-theme hungry-delete swiper counsel popwin youdao-dictionary winum pos-tip popup pkg-info names iedit helm-core helm-ag helm flycheck expand-region epl chinese-word-at-point autopair async)))
+    (use-package company-math math-symbol-lists shut-up yasnippet pallet which-key org-pomodoro highlight-parentheses spacemacs-theme spaceline powerline company company-coq proof-general monokai-theme hungry-delete swiper counsel popwin youdao-dictionary winum pos-tip popup pkg-info names iedit helm-core helm-ag helm flycheck expand-region epl chinese-word-at-point autopair async)))
  '(popwin:popup-window-position (quote right))
  '(popwin:popup-window-width 90)
  '(show-paren-mode t)

@@ -42,6 +42,7 @@
 (depends-on "spaceline")
 (depends-on "spacemacs-theme")
 (depends-on "swiper")
+(depends-on "use-package")
 (depends-on "which-key")
 (depends-on "winum")
 (depends-on "yasnippet")
