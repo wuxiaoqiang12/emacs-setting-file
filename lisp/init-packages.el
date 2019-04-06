@@ -35,10 +35,12 @@
   :config
   (add-hook 'coq-mode-hook #'company-coq-mode))
 
-(use-package monokai-theme
-  :ensure t
-  :config
-  (load-theme 'monokai t))
+;; (use-package monokai-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'monokai t))
+
+(load-theme 'zenburn t)
 
 (use-package flycheck
   :ensure t
